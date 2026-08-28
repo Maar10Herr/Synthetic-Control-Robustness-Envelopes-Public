@@ -8,6 +8,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+GENERATED_SUFFIXES = {".pyc", ".pyo"}
+GENERATED_DIRECTORIES = {"__pycache__", ".pycache"}
 
 
 def main() -> None:
@@ -15,7 +17,15 @@ def main() -> None:
     entries = 0
     for line in manifest.read_text().splitlines():
         expected, relative = line.split("  ", 1)
-        path = ROOT / relative.removeprefix("./")
+        relative_path = Path(relative.removeprefix("./"))
+        if (
+            relative_path.suffix in GENERATED_SUFFIXES
+            or any(part in GENERATED_DIRECTORIES for part in relative_path.parts)
+        ):
+            raise AssertionError(f"generated artifact recorded in manifest: {relative}")
+        path = ROOT / relative_path
+        if not path.is_file():
+            raise AssertionError(f"manifest entry is missing: {relative}")
         actual = hashlib.sha256(path.read_bytes()).hexdigest()
         if actual != expected:
             raise AssertionError(f"digest mismatch: {relative}")
