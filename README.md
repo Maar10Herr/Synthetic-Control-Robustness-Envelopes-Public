@@ -47,9 +47,10 @@ Core verification uses only the Python standard library:
 make verify-core
 ```
 
-This runs 50 exact tests and replays five rational certificates, including the
-disconnected sign-flip construction and the continuous-predictor-weight
-examples.
+This runs 56 tests (50 pass with the standard library; six optional SciPy
+checks skip when scalable dependencies are absent) and replays five rational
+certificates, including the disconnected sign-flip construction and the
+continuous-predictor-weight examples.
 
 Scalable public-data checks use pinned NumPy and SciPy versions in a local
 environment:
