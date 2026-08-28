@@ -20,7 +20,16 @@ def main():
     with path.open() as handle:
         saved = json.load(handle)
     replayed = build_payload()
-    if replayed != saved:
+    # Runtime versions document discovery provenance but are not mathematical
+    # certificate content.  A clean runner may use a different Python patch
+    # release while reproducing the same exact rational payload.
+    saved_certificate = {
+        key: value for key, value in saved.items() if key != "discovery_environment"
+    }
+    replayed_certificate = {
+        key: value for key, value in replayed.items() if key != "discovery_environment"
+    }
+    if replayed_certificate != saved_certificate:
         raise AssertionError("Proposition 99 coordinate sandwich changed")
 
     bounds = saved["certified_global_bounds"]

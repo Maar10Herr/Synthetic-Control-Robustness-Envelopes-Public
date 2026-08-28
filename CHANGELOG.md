@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2 — 2026-08-28
+
+- Ignore runtime version metadata when replaying the exact Proposition 99
+  certificate, while preserving it as provenance.
+- Refresh GitHub Actions to current Node.js-compatible major releases.
+- Pin CI actions to immutable upstream commits, with version comments retained
+  for reviewability.
+
 ## 0.4.1 — 2026-08-28
 
 - Correct manifest generation and verification to exclude interpreter-generated
