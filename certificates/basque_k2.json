@@ -1,0 +1,78 @@
+{
+  "instance": "instances/empirical/basque_k2.csv",
+  "metadata": "instances/empirical/basque_k2_metadata.json",
+  "status": "globally certified exact rational arithmetic conditional on the six-decimal export",
+  "solver_scope": "continuous V, K=2, J=16, two-dimensional predictor hull",
+  "acceptance": "SciPy proposes active supports; every branch LP/QP optimum is accepted by exact rational primal-dual KKT checks",
+  "discovery_environment": {
+    "python": "3.13.5",
+    "numpy": "2.5.2",
+    "scipy": "1.16.1"
+  },
+  "crosscheck": {
+    "method": "exhaustive rational support enumeration",
+    "date": "2026-08-26",
+    "elapsed_seconds": 161.6009,
+    "result": "all saved exact optimum, attainable-range, and breakdown fractions matched"
+  },
+  "expected": {
+    "hull_vertex_count": 6,
+    "graph_branch_count": 7,
+    "outer_optimum": "317176064297329344744470846981337907/76848783068877138309623080000000000000",
+    "exact_lower_effect": "-295626805122743956256952106133/1097839758126816261566044000000",
+    "exact_upper_effect": "-295626805122743956256952106133/1097839758126816261566044000000",
+    "attainable_lower_effect": "-27221/31250",
+    "attainable_upper_effect": "4690908946097/1766345400000",
+    "sign_breakdown_epsilon": "12908312705280637079496739453168473277631318015333903377539/2219690659656274145946193371634219461119971669480000000000000",
+    "attained_zero_epsilon": "12908312705280637079496739453168473277631318015333903377539/2219690659656274145946193371634219461119971669480000000000000",
+    "relative_sign_breakdown": "12908312705280637079496739453168473277631318015333903377539/9161273858511428466501173483344838128124403883391829125467"
+  },
+  "witnesses": {
+    "global_optimum": {
+      "branch": "predictor-boundary-0",
+      "zero_based_support": [3, 12, 15],
+      "nonzero_donor_weights_by_region": {
+        "5": "58070120382274316438725/156834251160973751652292",
+        "14": "483906707902380290960431/1097839758126816261566044",
+        "18": "103721103774257877767269/548919879063408130783022"
+      }
+    },
+    "first_attained_zero": {
+      "branch": "predictor-boundary-0",
+      "zero_based_support": [8, 12, 15],
+      "nonzero_donor_weights_by_region": {
+        "10": "261710534191/339905135018",
+        "14": "69976076703/339905135018",
+        "18": "4109262062/169952567509"
+      }
+    }
+  },
+  "near_envelopes": [
+    {
+      "label": "one_percent_relative_outer_gap",
+      "epsilon": "317176064297329344744470846981337907/7684878306887713830962308000000000000000",
+      "digits": 6,
+      "lower_effect_box": [
+        "-339790687342681963994651042879098493/1151168422217584488287876153344000000",
+        "-169895013336006647848256352487062729/575584211108792244143938076672000000"
+      ],
+      "upper_effect_box": [
+        "-2453694410835067239037452892902159750516551/10166805236046440799993219596144345088000000",
+        "-9814749283113318339628396926601051552733173/40667220944185763199972878384577380352000000"
+      ]
+    },
+    {
+      "label": "five_percent_relative_outer_gap",
+      "epsilon": "317176064297329344744470846981337907/1536975661377542766192461600000000000000",
+      "digits": 6,
+      "lower_effect_box": [
+        "-374811518147451111711666709689737773/1151168422217584488287876153344000000",
+        "-187405428738391221706764185892382369/575584211108792244143938076672000000"
+      ],
+      "upper_effect_box": [
+        "-965380093046324600336406798998590749378971/5083402618023220399996609798072172544000000",
+        "-2574337461381215395389946582327046181899579/13555740314728587733324292794859126784000000"
+      ]
+    }
+  ]
+}

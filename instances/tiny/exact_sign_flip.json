@@ -1,0 +1,19 @@
+{
+  "name": "exact_sign_flip_three_donors",
+  "provenance": "Constructed analytically for this project; no external data.",
+  "arithmetic": "integers interpreted as exact rational numbers",
+  "predictor_target": [0],
+  "predictor_donors": [[-1, 1, 0]],
+  "validation_target": [0],
+  "validation_donors": [[-1, 1, 0]],
+  "predictor_weight_grid": [[1]],
+  "treated_post": 0,
+  "donor_post": [2, 2, -2],
+  "expected": {
+    "outer_optimum": "0",
+    "lower_effect": "-2",
+    "upper_effect": "2",
+    "endpoint_weights": [["0", "0", "1"], ["1/2", "1/2", "0"]]
+  }
+}
+

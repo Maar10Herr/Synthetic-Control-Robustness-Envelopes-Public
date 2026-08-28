@@ -1,0 +1,36 @@
+{
+  "name": "california_proposition_99_tidysynth_full_readme_design",
+  "status": "canonical public-data package example; exact conditional on a six-decimal rational export",
+  "provenance": {
+    "package": "tidysynth",
+    "version": "0.2.1",
+    "repository": "CRAN",
+    "source_url": "https://cran.r-project.org/src/contrib/tidysynth_0.2.1.tar.gz",
+    "downloaded": "2026-08-27",
+    "sha256": "046b416b437dd2f3d5610ac6a594db1c941c3cf9c208becfdfed0a76ce553281",
+    "license": "MIT",
+    "source_object": "data/smoking.rda",
+    "upstream_data_note": "package documentation identifies the source as the Abadie-Diamond-Hainmueller 2010 Proposition 99 data",
+    "transformation": "scripts/extract_prop99_full.R implements the package README predictor and optimization windows and rounds all derived values to six decimal places",
+    "fixture_sha256": "7e0ec4fbf09c8357aee35e36bd911dbcb6cf95b1814669c1681c35c6263736cf"
+  },
+  "design": {
+    "treated_unit": "California",
+    "control_count": 38,
+    "predictors": [
+      "mean lnincome over 1980-1988",
+      "mean retprice over 1980-1988",
+      "mean age15to24 over 1980-1988",
+      "mean beer over 1984-1988",
+      "cigsale in 1975",
+      "cigsale in 1980",
+      "cigsale in 1988"
+    ],
+    "validation_outcome": "cigsale",
+    "validation_years": [1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988],
+    "post_summary": "mean cigsale over 1989-2000",
+    "effect_direction": "treated minus synthetic",
+    "label_note": "full tidysynth README design; not claimed as an exact reproduction of every implementation detail or published scalar"
+  },
+  "data_file": "instances/empirical/prop99_full.csv"
+}

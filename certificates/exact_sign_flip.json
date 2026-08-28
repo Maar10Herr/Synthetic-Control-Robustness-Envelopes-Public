@@ -1,0 +1,15 @@
+{
+  "instance": "instances/tiny/exact_sign_flip.json",
+  "claim": "complete exact-optimum solution set and treatment-effect endpoints",
+  "parameter": "t",
+  "weights": {
+    "base": ["0", "0", "1"],
+    "direction": ["1", "1", "-2"],
+    "lower": "0",
+    "upper": "1/2"
+  },
+  "outer_optimum": "0",
+  "lower_effect": "-2",
+  "upper_effect": "2"
+}
+

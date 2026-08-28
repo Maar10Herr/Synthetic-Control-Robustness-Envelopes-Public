@@ -1,0 +1,19 @@
+{
+  "name": "strictly_interior_predictor_weight_optimum",
+  "provenance": "Constructed analytically for conjecture falsification.",
+  "arithmetic": "integers and rational strings interpreted exactly",
+  "predictor_target": [0, 0],
+  "predictor_donors": [[0, 1], [1, 0]],
+  "validation_target": [0],
+  "validation_donors": [[-1, 1]],
+  "predictor_weight_grid": [["0", "1"], ["1/2", "1/2"], ["1", "0"]],
+  "treated_post": 0,
+  "donor_post": [-1, 1],
+  "expected": {
+    "unique_predictor_weights": ["1/2", "1/2"],
+    "unique_donor_weights": ["1/2", "1/2"],
+    "outer_optimum": "0",
+    "outer_loss_at_each_predictor_simplex_vertex": "1"
+  }
+}
+
