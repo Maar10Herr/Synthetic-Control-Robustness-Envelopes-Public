@@ -10,11 +10,32 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 GENERATED_SUFFIXES = {".pyc", ".pyo"}
 GENERATED_DIRECTORIES = {"__pycache__", ".pycache"}
+NON_RELEASE_DIRECTORIES = {".git", ".venv", ".uv-cache", "build", "dist"}
+
+
+def _release_files() -> set[str]:
+    files = set()
+    for path in ROOT.rglob("*"):
+        relative = path.relative_to(ROOT)
+        if any(part in NON_RELEASE_DIRECTORIES for part in relative.parts):
+            continue
+        if (
+            relative.name == "MANIFEST.sha256"
+            or relative.suffix in GENERATED_SUFFIXES
+            or any(part in GENERATED_DIRECTORIES for part in relative.parts)
+        ):
+            continue
+        if path.is_symlink():
+            raise AssertionError(f"symbolic link is not a release file: {relative}")
+        if path.is_file():
+            files.add(str(relative))
+    return files
 
 
 def main() -> None:
     manifest = ROOT / "MANIFEST.sha256"
     entries = 0
+    listed = set()
     for line in manifest.read_text().splitlines():
         expected, relative = line.split("  ", 1)
         relative_path = Path(relative.removeprefix("./"))
@@ -29,7 +50,16 @@ def main() -> None:
         actual = hashlib.sha256(path.read_bytes()).hexdigest()
         if actual != expected:
             raise AssertionError(f"digest mismatch: {relative}")
+        if str(relative_path) in listed:
+            raise AssertionError(f"duplicate manifest entry: {relative}")
+        listed.add(str(relative_path))
         entries += 1
+    unlisted = _release_files() - listed
+    if unlisted:
+        raise AssertionError(f"unlisted release files: {sorted(unlisted)}")
+    stale = listed - _release_files()
+    if stale:
+        raise AssertionError(f"stale manifest entries: {sorted(stale)}")
     print(f"manifest_ok entries={entries}")
 
 
