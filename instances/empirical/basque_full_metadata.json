@@ -1,0 +1,31 @@
+{
+  "name": "basque_country_official_full_predictor_design",
+  "status": "official Synth example predictor transformation; declared six-year post scalar",
+  "provenance": {
+    "package": "Synth",
+    "version": "1.1-10",
+    "repository": "CRAN",
+    "source_url": "https://cran.r-project.org/src/contrib/Synth_1.1-10.tar.gz",
+    "archive_url": "https://cran.r-project.org/src/contrib/Archive/Synth/Synth_1.1-10.tar.gz",
+    "downloaded": "2026-08-26",
+    "sha256": "41a33d869b88f218d6c7a0a88f3a1e7b2730cb83850695be970d9b2c8effef93",
+    "license": "GPL (>= 2)",
+    "source_object": "data/basque.RData",
+    "original_study": "Abadie and Gardeazabal (2003), Economic Costs of Conflict: A Case Study of the Basque Country",
+    "transformation": "official package example's 13 post-combination predictors, rounded to six decimal places with R 4.6.1"
+  },
+  "design": {
+    "treated_unit": 17,
+    "control_units": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18],
+    "predictor_count": 13,
+    "predictor_definition": "five regular 1964-1969 means after combining the two highest schooling categories, plus the eight special predictors in the Synth package example",
+    "validation_outcome": "gdpcap",
+    "validation_years": [1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969],
+    "post_summary": "mean_gdpcap_1970_1975",
+    "post_summary_note": "declared scalar for this robustness analysis; the package example plots the full 1955-1997 path",
+    "effect_direction": "treated minus synthetic",
+    "predictor_scaling_note": "the official Synth row standardization is positive and only reparameterizes unrestricted continuous V"
+  },
+  "predictor_file": "instances/empirical/basque_full_predictors.csv",
+  "outcome_file": "instances/empirical/basque_k2.csv"
+}

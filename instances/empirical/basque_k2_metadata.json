@@ -1,0 +1,29 @@
+{
+  "name": "basque_country_real_data_two_predictor_slice",
+  "status": "real canonical source data; altered K=2 design; exact conditional on six-decimal export",
+  "provenance": {
+    "package": "Synth",
+    "version": "1.1-10",
+    "repository": "CRAN",
+    "source_url": "https://cran.r-project.org/src/contrib/Synth_1.1-10.tar.gz",
+    "archive_url": "https://cran.r-project.org/src/contrib/Archive/Synth/Synth_1.1-10.tar.gz",
+    "downloaded": "2026-08-26",
+    "sha256": "41a33d869b88f218d6c7a0a88f3a1e7b2730cb83850695be970d9b2c8effef93",
+    "license": "GPL (>= 2)",
+    "source_object": "data/basque.RData",
+    "original_study": "Abadie and Gardeazabal (2003), Economic Costs of Conflict: A Case Study of the Basque Country",
+    "transformation": "all derived predictors, validation outcomes, and post summaries rounded to six decimal places with R 4.6.1",
+    "scope_note": "The official Synth example uses 13 transformed predictors. This fixture fixes only mean 1960-1969 GDP per capita and mean 1964-1969 investment, so it is not a replication of the published or package estimate."
+  },
+  "design": {
+    "treated_unit": 17,
+    "control_units": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18],
+    "predictors": ["mean_gdpcap_1960_1969", "mean_invest_1964_1969"],
+    "validation_outcome": "gdpcap",
+    "validation_years": [1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969],
+    "post_summary": "mean_gdpcap_1970_1975",
+    "effect_direction": "treated minus synthetic",
+    "predictor_scaling_note": "positive row scaling only reparameterizes continuous V and does not alter the lower-graph union"
+  },
+  "data_file": "instances/empirical/basque_k2.csv"
+}

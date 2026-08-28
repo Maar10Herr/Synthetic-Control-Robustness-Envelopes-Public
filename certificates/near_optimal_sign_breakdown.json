@@ -1,0 +1,10 @@
+{
+  "instance": "instances/adversarial/near_optimal_sign_breakdown.json",
+  "claim": "unique continuous-V global optimum and exact envelope sign-breakdown gap",
+  "validation_perturbation": "3/1000",
+  "global_outer_loss": "41072081/18000000",
+  "opposite_sign_outer_loss": "41090081/18000000",
+  "envelope_sign_breakdown_epsilon": "1/1000",
+  "first_attained_zero_epsilon": "26081/81000"
+}
+

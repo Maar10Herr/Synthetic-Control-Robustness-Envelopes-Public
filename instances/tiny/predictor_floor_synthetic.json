@@ -1,0 +1,14 @@
+{
+  "name": "two-donor positive-predictor-floor certificate",
+  "status": "exact rational synthetic regression fixture",
+  "predictor_target": ["1", "0"],
+  "predictor_donors": [["0", "1"], ["0", "1"]],
+  "validation_target": ["0"],
+  "validation_donors": [["0", "1"]],
+  "predictor_floor": "1/4",
+  "expected": {
+    "standardized_predictor_weights": ["1/4", "3/4"],
+    "donor_weights": ["3/4", "1/4"],
+    "outer_loss": "1/16"
+  }
+}

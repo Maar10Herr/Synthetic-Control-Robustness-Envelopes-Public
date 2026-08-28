@@ -1,0 +1,52 @@
+{
+  "name": "cran_synth_demo_two_predictor_slice",
+  "status": "public artificial demo; exact conditional on declared decimal export",
+  "provenance": {
+    "package": "Synth",
+    "version": "1.1-10",
+    "repository": "CRAN",
+    "source_url": "https://cran.r-project.org/src/contrib/Synth_1.1-10.tar.gz",
+    "downloaded": "2026-08-26",
+    "sha256": "41a33d869b88f218d6c7a0a88f3a1e7b2730cb83850695be970d9b2c8effef93",
+    "license": "GPL (>= 2)",
+    "source_object": "data/synth.data.RData",
+    "source_documentation": "man/synth.data.Rd and man/synth.Rd",
+    "transformation": "X1 and X2 are unit means over 1984-1989, exported from R and rounded to 9 decimal places; Y values are exported at their documented one-decimal resolution",
+    "scope_note": "The official package example also uses X3 and three special outcome predictors. This fixture deliberately omits them to remain inside the proved K=2 class, so it is a two-predictor slice, not a replication of the package estimate."
+  },
+  "design": {
+    "treated_unit": 7,
+    "control_units": [29, 2, 13, 17, 32, 38],
+    "control_names": [
+      "control.region.southeast",
+      "control.region.northeast",
+      "control.region.southcentral",
+      "control.region.west",
+      "control.region.central",
+      "control.region.east"
+    ],
+    "predictors": ["mean_X1_1984_1989", "mean_X2_1984_1989"],
+    "validation_outcome": "Y",
+    "validation_years": [1984, 1985, 1986, 1987, 1988, 1989, 1990],
+    "post_summary_year": 1991,
+    "predictor_scaling_note": "Positive row scaling changes the V parameterization but not the union of lower solutions over all V, so raw predictor units are valid for this envelope."
+  },
+  "arithmetic": "decimal strings interpreted as exact rationals",
+  "predictor_target": ["0.262929748", "15.466666857"],
+  "predictor_donors": [
+    ["0.262312678", "0.237499240", "0.251990475", "0.256849043", "0.250019739", "0.251183527"],
+    ["9.250000159", "21.633332888", "17.866666794", "25.166666985", "17.849999746", "10.500000000"]
+  ],
+  "validation_target": ["126.3", "128.8", "129.0", "129.3", "124.1", "117.1", "113.8"],
+  "validation_donors": [
+    ["136.9", "123.1", "183.2", "116.4", "125.1", "105.6"],
+    ["133.4", "125.8", "182.4", "115.3", "128.7", "107.0"],
+    ["136.3", "126.0", "179.8", "113.2", "129.0", "105.4"],
+    ["124.4", "122.3", "171.2", "110.0", "130.6", "106.0"],
+    ["138.0", "121.5", "173.2", "109.0", "125.3", "102.6"],
+    ["120.8", "118.3", "171.6", "108.3", "124.7", "100.3"],
+    ["101.4", "113.1", "182.5", "101.8", "121.8", "94.0"]
+  ],
+  "treated_post": "115.0",
+  "donor_post": ["103.6", "116.8", "170.4", "105.6", "120.6", "95.5"]
+}

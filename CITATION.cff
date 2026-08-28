@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use the theorem, certificates, or software, please cite the paper and this repository."
+title: "Synthetic Control Robustness Envelopes"
+type: software
+authors:
+  - family-names: Herrmann
+    given-names: Maarten Linus
+    orcid: "https://orcid.org/0009-0005-8721-6588"
+version: 0.4.0
+date-released: 2026-08-28
+repository-code: "https://github.com/Maar10Herr/Synthetic-Control-Robustness-Envelopes-Public"
+license: GPL-3.0-or-later
+keywords:
+  - synthetic control
+  - optimization robustness
+  - exact certification
+  - bilevel optimization
+preferred-citation:
+  type: article
+  title: "Sharp Optimization-Robustness Envelopes for Classical Synthetic Control"
+  authors:
+    - family-names: Herrmann
+      given-names: Maarten Linus
+      orcid: "https://orcid.org/0009-0005-8721-6588"
+  year: 2026
+  repository-code: "https://github.com/Maar10Herr/Synthetic-Control-Robustness-Envelopes-Public"
+  notes: "Technical preprint, version 0.4; software release 0.4.0."
