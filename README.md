@@ -8,10 +8,10 @@ Exact and certified optimization-robustness envelopes for classical
 Abadie–Diamond–Hainmueller synthetic control.
 
 > [!IMPORTANT]
-> **Research implementation.** These envelopes diagnose variation across
-> globally optimal or nearly optimal solutions of a declared fitting problem.
-> They are not confidence intervals, do not address causal identification, and
-> are not a drop-in replacement for established synthetic-control software.
+> **Research implementation.** Scope: variation across globally optimal or
+> nearly optimal solutions of a declared fitting problem. Sampling uncertainty,
+> causal identification, and production synthetic-control workflows require
+> separate methods and established software.
 
 **[Read the paper](paper/Herrmann_Sharp_SCM_Robustness_Envelopes.pdf)** ·
 **[Inspect the certificates](certificates/)** ·
@@ -85,7 +85,7 @@ flowchart LR
 | Proposition 99 design | 7 predictors, 38 controls | Outward-certified global and 1%/5% envelopes remain negative |
 
 “Sharp” is used only where lower and upper bounds coincide. The Proposition 99
-result is deliberately reported as an outward-certified box.
+result is reported as an outward-certified box.
 
 ## Trust boundary
 
