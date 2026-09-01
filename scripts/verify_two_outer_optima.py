@@ -5,6 +5,9 @@ import json
 from fractions import Fraction as F
 from pathlib import Path
 
+if not __debug__:
+    raise SystemExit("verification requires assertions; run Python without -O")
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -79,4 +82,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

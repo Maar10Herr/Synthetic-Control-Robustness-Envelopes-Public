@@ -1,4 +1,5 @@
 import sys
+import tempfile
 import unittest
 from fractions import Fraction
 from pathlib import Path
@@ -23,6 +24,18 @@ class Prop99LoaderTests(unittest.TestCase):
         self.assertEqual(design.predictor_names[4], "cigsale_1975")
         self.assertEqual(design.predictor_target[4], design.validation_target[5])
         self.assertEqual(design.treated_post, Fraction(1207, 20))
+
+    def test_duplicate_control_labels_are_rejected(self):
+        source = ROOT / "instances" / "empirical" / "prop99_full.csv"
+        rows = source.read_text().splitlines()
+        first_control = rows[2].split(",", 1)[0]
+        second_control = rows[3].split(",", 1)[1]
+        rows[3] = first_control + "," + second_control
+        with tempfile.TemporaryDirectory(prefix="prop99-loader-") as temporary:
+            path = Path(temporary) / "duplicate.csv"
+            path.write_text("\n".join(rows) + "\n")
+            with self.assertRaisesRegex(ValueError, "unique nonempty"):
+                load_prop99_full(path)
 
 
 if __name__ == "__main__":

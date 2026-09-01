@@ -377,7 +377,8 @@ def branch_contains_weights(
     if branch.kind == "coordinate-match":
         variables = donor_weights
     else:
-        assert branch.residual_sign is not None
+        if branch.residual_sign is None:
+            raise ValueError("normal branch is missing its residual sign")
         fitted = tuple(_dot(row, donor_weights) for row in predictor_donors)
         slacks = tuple(
             Rat(sign) * (target - value)
@@ -414,7 +415,8 @@ def witness_predictor_weights(
         raise ValueError("donor weights do not belong to branch")
     dimension = len(predictor_target)
     if branch.kind == "coordinate-match":
-        assert branch.coordinate is not None
+        if branch.coordinate is None:
+            raise ValueError("coordinate branch is missing its coordinate")
         return tuple(
             Rat(1) if index == branch.coordinate else Rat(0)
             for index in range(dimension)
@@ -432,7 +434,8 @@ def witness_predictor_weights(
             Rat(1) if index == zero_coordinate else Rat(0)
             for index in range(dimension)
         )
-    assert branch.normal_witness is not None
+    if branch.normal_witness is None:
+        raise ValueError("normal branch is missing its normal witness")
     unnormalized = tuple(
         normal / value
         for normal, value in zip(branch.normal_witness, residual)

@@ -55,9 +55,12 @@ def load_prop99_full(path: Path) -> Prop99Design:
         raise ValueError("fixture must contain California and 38 controls")
     if any(len(row) != len(EXPECTED_HEADER) for row in data):
         raise ValueError("fixture row width does not match its header")
-    if tuple(row[0] for row in data[1:]) != tuple(
-        sorted(row[0] for row in data[1:])
+    donor_labels = tuple(row[0] for row in data[1:])
+    if any(not label for label in donor_labels) or len(set(donor_labels)) != len(
+        donor_labels
     ):
+        raise ValueError("control states must have unique nonempty labels")
+    if donor_labels != tuple(sorted(donor_labels)):
         raise ValueError("control states must be sorted")
 
     predictor_start = 1
