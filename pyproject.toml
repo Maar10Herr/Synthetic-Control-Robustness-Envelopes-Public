@@ -9,7 +9,7 @@ authors = [{name = "Maarten Linus Herrmann"}]
 dependencies = []
 
 [project.optional-dependencies]
-scalable = ["numpy==2.5.2", "scipy==1.16.1"]
+scalable = ["numpy==2.5.2", "scipy==1.18.1"]
 
 [project.urls]
 Homepage = "https://github.com/Maar10Herr/Synthetic-Control-Robustness-Envelopes-Public"
