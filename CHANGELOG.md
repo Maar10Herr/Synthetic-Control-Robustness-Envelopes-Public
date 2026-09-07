@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.4 — 2026-09-07
+
+- Reject unsafe manifest paths and symbolic-link targets before hashing.
+- Add hostile manifest tests and update the optional scalable SciPy dependency.
+
 ## 0.4.3 — 2026-08-28
 
 - Make the release manifest fail closed on unlisted, stale, duplicate, or
