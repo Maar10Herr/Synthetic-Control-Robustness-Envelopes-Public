@@ -97,8 +97,9 @@ result is reported as an outward-certified box.
 - Optional R scripts reconstruct package-derived fixtures and conventional
   `Synth` comparisons without installing packages globally.
 
-No API key, database, private dataset, manuscript source, or working research
-note is included. The release verifier does not require network access.
+The release includes the [preprint PDF](paper/Herrmann_Sharp_SCM_Robustness_Envelopes.pdf)
+and its [LaTeX source](paper/sharp_adh_robustness_envelopes.tex). The release
+verifier does not require network access.
 
 ## Prior work and attribution
 
@@ -117,7 +118,7 @@ corresponding experiment records.
 ## Repository map
 
 ```text
-paper/          version-0.4 preprint PDF
+paper/          version-0.5 preprint PDF, LaTeX source, bibliography, and figure
 src/            exact and scalable implementation
 tests/          unit, adversarial, and tamper-oriented checks
 certificates/   frozen accepted proof objects
